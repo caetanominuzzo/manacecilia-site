@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Te amo mana Cecília!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4, #FFE66D, #FF6B9D, #C44569);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            padding: 40px;
+        }
+
+        h1 {
+            font-size: 12vw;
+            font-weight: bold;
+            color: #FFFFFF;
+            text-shadow: 
+                8px 8px 0px #FF0000,
+                16px 16px 0px #00FF00,
+                24px 24px 0px #0000FF,
+                32px 32px 0px #FFFF00;
+            animation: bounce 2s ease-in-out infinite;
+            transform: rotate(-2deg);
+            margin: 20px;
+            line-height: 1.2;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: rotate(-2deg) translateY(0); }
+            50% { transform: rotate(2deg) translateY(-20px); }
+        }
+
+        .word {
+            display: inline-block;
+            animation: wiggle 3s ease-in-out infinite;
+        }
+
+        .word:nth-child(1) { animation-delay: 0s; color: #FF6B6B; }
+        .word:nth-child(2) { animation-delay: 0.2s; color: #FFE66D; }
+        .word:nth-child(3) { animation-delay: 0.4s; color: #4ECDC4; }
+        .word:nth-child(4) { animation-delay: 0.6s; color: #FF6B9D; }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(-5deg) scale(1.1); }
+            75% { transform: rotate(5deg) scale(1.1); }
+        }
+
+        /* Estrelas flutuantes */
+        .star {
+            position: absolute;
+            font-size: 60px;
+            color: #FFD700;
+            animation: float 4s ease-in-out infinite;
+            opacity: 0.8;
+        }
+
+        .star:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+        .star:nth-child(2) { top: 20%; right: 15%; animation-delay: 1s; }
+        .star:nth-child(3) { bottom: 15%; left: 20%; animation-delay: 2s; }
+        .star:nth-child(4) { bottom: 25%; right: 10%; animation-delay: 1.5s; }
+        .star:nth-child(5) { top: 50%; left: 5%; animation-delay: 0.5s; }
+        .star:nth-child(6) { top: 60%; right: 5%; animation-delay: 2.5s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(180deg); }
+        }
+
+        /* Corações */
+        .heart {
+            position: absolute;
+            font-size: 50px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .heart:nth-child(7) { top: 30%; left: 50%; color: #FF1493; animation-delay: 0s; }
+        .heart:nth-child(8) { bottom: 30%; left: 45%; color: #FF69B4; animation-delay: 1s; }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.3); opacity: 1; }
+        }
+
+        /* Vídeos flutuantes */
+        .floating-video {
+            position: absolute;
+            z-index: 1;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 2s ease-in-out;
+            object-fit: cover;
+        }
+
+        .floating-video.visible {
+            opacity: 0.8;
+        }
+
+        /* Máscaras para formas */
+        .floating-video.shape-circle {
+            border-radius: 50%;
+        }
+
+        .floating-video.shape-star {
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            border-radius: 0;
+        }
+
+        .floating-video.shape-heart {
+            clip-path: polygon(
+                50% 15%,
+                15% 15%,
+                0% 35%,
+                0% 60%,
+                50% 100%,
+                100% 60%,
+                100% 35%,
+                85% 15%
+            );
+            border-radius: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 15vw;
+                text-shadow: 
+                    4px 4px 0px #FF0000,
+                    8px 8px 0px #00FF00,
+                    12px 12px 0px #0000FF,
+                    16px 16px 0px #FFFF00;
+            }
+            .star {
+                font-size: 40px;
+            }
+            .heart {
+                font-size: 35px;
+            }
+            .floating-video {
+                max-width: 150px;
+                max-height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Estrelas decorativas -->
+    <div class="star">⭐</div>
+    <div class="star">✨</div>
+    <div class="star">⭐</div>
+    <div class="star">✨</div>
+    <div class="star">⭐</div>
+    <div class="star">✨</div>
+
+    <!-- Corações decorativos -->
+    <div class="heart">❤️</div>
+    <div class="heart">💕</div>
+
+    <!-- Container para vídeos flutuantes (será populado pelo JavaScript) -->
+    <div id="video-container"></div>
+
+    <div class="container">
+        <h1>
+            <span class="word">TE</span>
+            <span class="word">AMO</span>
+            <span class="word">MANA</span>
+            <span class="word">CECÍLIA</span>
+        </h1>
+    </div>
+
+    <script>
+        // Lista de vídeos processados (será preenchida após processar os vídeos)
+        const videoClips = [];
+        
+        // Formas disponíveis
+        const shapes = ['circle', 'star', 'heart'];
+        
+        // Configurações
+        const MIN_VISIBLE = 3;
+        const MAX_VISIBLE = 5;
+        const MIN_SIZE = 80; // pixels - tamanhos menores
+        const MAX_SIZE = 600; // pixels - tamanhos maiores
+        const MIN_DURATION = 3000; // ms
+        const MAX_DURATION = 8000; // ms
+        const FADE_DURATION = 2000; // ms
+        const PADDING = 20; // espaçamento mínimo entre vídeos
+
+        // Lista de vídeos processados (hardcoded para evitar CORS)
+        const VIDEO_CLIPS = [
+            "processed/clips/IMG_0197_0.webm",
+            "processed/clips/IMG_0197_1.webm",
+            "processed/clips/IMG_0487_0.webm",
+            "processed/clips/IMG_0487_2.webm",
+            "processed/clips/IMG_2922_0.webm",
+            "processed/clips/IMG_2922_1.webm",
+            "processed/clips/IMG_2922_10.webm",
+            "processed/clips/IMG_2922_12.webm",
+            "processed/clips/IMG_2922_13.webm",
+            "processed/clips/IMG_2922_2.webm",
+            "processed/clips/IMG_2922_5.webm",
+            "processed/clips/IMG_2922_9.webm",
+            "processed/clips/VID_20161125_233655103_0.webm",
+            "processed/clips/VID_20231125_162511_0.webm",
+            "processed/clips/VID_20231125_162511_5.webm"
+        ];
+
+        // Função para obter lista de vídeos processados
+        async function loadVideoClips() {
+            return VIDEO_CLIPS;
+        }
+
+        // Classe para gerenciar vídeos flutuantes
+        class FloatingVideoManager {
+            constructor() {
+                this.activeVideos = new Map();
+                this.availableClips = [];
+                this.container = document.getElementById('video-container');
+                this.targetVisible = MIN_VISIBLE + Math.floor(Math.random() * (MAX_VISIBLE - MIN_VISIBLE + 1));
+            }
+
+            async init() {
+                this.availableClips = await loadVideoClips();
+                if (this.availableClips.length === 0) {
+                    console.warn('Nenhum vídeo encontrado.');
+                    return;
+                }
+                this.startManaging();
+            }
+
+            startManaging() {
+                // Adicionar vídeos iniciais
+                for (let i = 0; i < this.targetVisible; i++) {
+                    this.addVideo();
+                }
+
+                // Gerenciar ciclo de vídeos
+                setInterval(() => {
+                    this.updateVideos();
+                }, 2000);
+            }
+
+            // Verificar se uma posição colide com vídeos existentes
+            checkCollision(x, y, size, existingRects) {
+                const rect1 = {
+                    left: x,
+                    top: y,
+                    right: x + size,
+                    bottom: y + size
+                };
+
+                for (const rect2 of existingRects) {
+                    // Verificar sobreposição com padding
+                    if (!(
+                        rect1.right + PADDING < rect2.left ||
+                        rect1.left > rect2.right + PADDING ||
+                        rect1.bottom + PADDING < rect2.top ||
+                        rect1.top > rect2.bottom + PADDING
+                    )) {
+                        return true; // Colisão detectada
+                    }
+                }
+                return false; // Sem colisão
+            }
+
+            // Obter posição livre sem colisão
+            findFreePosition(size, maxAttempts = 50) {
+                // Usar dados armazenados dos vídeos ativos (x, y, size)
+                const existingRects = Array.from(this.activeVideos.values())
+                    .filter(({ x, y, size: vidSize }) => x !== undefined && y !== undefined && vidSize !== undefined)
+                    .map(({ x, y, size: vidSize }) => {
+                        return {
+                            left: x,
+                            top: y,
+                            right: x + vidSize,
+                            bottom: y + vidSize
+                        };
+                    });
+
+                for (let attempt = 0; attempt < maxAttempts; attempt++) {
+                    const x = Math.random() * Math.max(0, window.innerWidth - size);
+                    const y = Math.random() * Math.max(0, window.innerHeight - size);
+                    
+                    if (!this.checkCollision(x, y, size, existingRects)) {
+                        return { x, y };
+                    }
+                }
+                
+                // Se não encontrou posição livre após várias tentativas, retorna posição aleatória mesmo
+                return {
+                    x: Math.random() * Math.max(0, window.innerWidth - size),
+                    y: Math.random() * Math.max(0, window.innerHeight - size)
+                };
+            }
+
+            addVideo() {
+                if (this.availableClips.length === 0) return;
+
+                const clip = this.availableClips[Math.floor(Math.random() * this.availableClips.length)];
+                const shape = shapes[Math.floor(Math.random() * shapes.length)];
+                
+                // Tamanhos mais variados - alguns muito pequenos, outros grandes
+                // Usa distribuição exponencial para ter mais pequenos e menos grandes
+                const sizeMultiplier = Math.random();
+                let size;
+                if (sizeMultiplier < 0.4) {
+                    // 40% dos vídeos serão pequenos (80-200px)
+                    size = MIN_SIZE + Math.floor(Math.random() * 120);
+                } else if (sizeMultiplier < 0.8) {
+                    // 40% dos vídeos serão médios (200-350px)
+                    size = 200 + Math.floor(Math.random() * 150);
+                } else {
+                    // 20% dos vídeos serão grandes (350-600px)
+                    size = 350 + Math.floor(Math.random() * 250);
+                }
+                
+                // Encontrar posição sem colisão
+                const position = this.findFreePosition(size);
+                const duration = MIN_DURATION + Math.random() * (MAX_DURATION - MIN_DURATION);
+
+                const video = document.createElement('video');
+                video.src = clip;
+                video.className = `floating-video shape-${shape}`;
+                video.autoplay = true;
+                video.loop = true;
+                video.muted = true;
+                video.style.width = `${size}px`;
+                video.style.height = `${size}px`;
+                video.style.left = `${position.x}px`;
+                video.style.top = `${position.y}px`;
+                
+                const id = Date.now() + Math.random();
+                this.container.appendChild(video);
+                
+                // Adicionar animação de entrada
+                setTimeout(() => {
+                    video.classList.add('visible');
+                }, 100);
+
+                // Remover após duração
+                const timeoutId = setTimeout(() => {
+                    this.removeVideo(id);
+                }, duration);
+
+                this.activeVideos.set(id, { video, timeoutId, size, x: position.x, y: position.y });
+                
+                video.play().catch(e => console.log('Erro ao reproduzir vídeo:', e));
+            }
+
+            removeVideo(id) {
+                const data = this.activeVideos.get(id);
+                if (!data) return;
+
+                const { video, timeoutId } = data;
+                clearTimeout(timeoutId);
+                
+                video.classList.remove('visible');
+                
+                setTimeout(() => {
+                    if (video.parentNode) {
+                        video.parentNode.removeChild(video);
+                    }
+                    this.activeVideos.delete(id);
+                }, FADE_DURATION);
+            }
+
+            updateVideos() {
+                const currentVisible = this.activeVideos.size;
+                
+                if (currentVisible < MIN_VISIBLE) {
+                    // Adicionar vídeos até atingir mínimo
+                    const needed = MIN_VISIBLE - currentVisible;
+                    for (let i = 0; i < needed; i++) {
+                        this.addVideo();
+                    }
+                } else if (currentVisible <= MAX_VISIBLE && Math.random() < 0.3) {
+                    // 30% chance de adicionar mais um se ainda não atingiu máximo
+                    this.addVideo();
+                }
+
+                // Ocasionalmente remover um vídeo aleatório para renovar
+                if (this.activeVideos.size > MIN_VISIBLE && Math.random() < 0.2) {
+                    const ids = Array.from(this.activeVideos.keys());
+                    const randomId = ids[Math.floor(Math.random() * ids.length)];
+                    this.removeVideo(randomId);
+                }
+            }
+        }
+
+        // Inicializar quando a página carregar
+        window.addEventListener('DOMContentLoaded', async () => {
+            const manager = new FloatingVideoManager();
+            await manager.init();
+        });
+    </script>
+</body>
+</html>
+
