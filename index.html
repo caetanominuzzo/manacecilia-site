@@ -217,21 +217,21 @@
 
         // Lista de vídeos processados (hardcoded para evitar CORS)
         const VIDEO_CLIPS = [
-            "processed/clips/IMG_0197_0.webm",
-            "processed/clips/IMG_0197_1.webm",
-            "processed/clips/IMG_0487_0.webm",
-            "processed/clips/IMG_0487_2.webm",
-            "processed/clips/IMG_2922_0.webm",
-            "processed/clips/IMG_2922_1.webm",
-            "processed/clips/IMG_2922_10.webm",
-            "processed/clips/IMG_2922_12.webm",
-            "processed/clips/IMG_2922_13.webm",
-            "processed/clips/IMG_2922_2.webm",
-            "processed/clips/IMG_2922_5.webm",
-            "processed/clips/IMG_2922_9.webm",
-            "processed/clips/VID_20161125_233655103_0.webm",
-            "processed/clips/VID_20231125_162511_0.webm",
-            "processed/clips/VID_20231125_162511_5.webm"
+            "processed/clips/IMG_0197_0.mp4",
+            "processed/clips/IMG_0197_1.mp4",
+            "processed/clips/IMG_0487_0.mp4",
+            "processed/clips/IMG_0487_2.mp4",
+            "processed/clips/IMG_2922_0.mp4",
+            "processed/clips/IMG_2922_1.mp4",
+            "processed/clips/IMG_2922_10.mp4",
+            "processed/clips/IMG_2922_12.mp4",
+            "processed/clips/IMG_2922_13.mp4",
+            "processed/clips/IMG_2922_2.mp4",
+            "processed/clips/IMG_2922_5.mp4",
+            "processed/clips/IMG_2922_9.mp4",
+            "processed/clips/VID_20161125_233655103_0.mp4",
+            "processed/clips/VID_20231125_162511_0.mp4",
+            "processed/clips/VID_20231125_162511_5.mp4"
         ];
 
         // Função para obter lista de vídeos processados
@@ -351,8 +351,10 @@
                 video.src = clip;
                 video.className = `floating-video shape-${shape}`;
                 video.autoplay = true;
+                video.playsInline = true; // Importante para iOS
                 video.loop = true;
                 video.muted = true;
+                video.preload = 'auto';
                 video.style.width = `${size}px`;
                 video.style.height = `${size}px`;
                 video.style.left = `${position.x}px`;
